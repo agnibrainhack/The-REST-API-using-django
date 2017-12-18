@@ -5,11 +5,12 @@ from django.db import models
 
 # Create your models here.
 class Note(models.Model):
-	title = models.CharField(max_length=200)
-	body = models.TextField()
+	product_title = models.CharField(max_length=200)
+	product_discount = models.TextField()
+	product_store = models.TextField(default= 'Flipkart')
 
 	created_at = models.DateTimeField(auto_now_add=True)
 	
 	def __str__(self):
-		return  str(self.body)
+		return  '%s %s %s' % (self.product_title, self.product_discount, self.product_store)
 
