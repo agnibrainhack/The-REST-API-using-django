@@ -4,6 +4,7 @@ from django.http import HttpResponse, JsonResponse
 from tastypie.resources	 import ModelResource
 from api.models import Note
 from tastypie.authorization import Authorization
+import image_check as im
 
 from django.db.models import CharField
 from django.db.models.functions import Cast
@@ -20,6 +21,7 @@ class NoteResource(ModelResource):
         if bundle.request.method == 'POST':
             value = Note.objects.last()
             val = str(value)
-            bundle.data['image_result'] = val   #obj.func(val)
+            obj = im.Image(val)
+            bundle.data['image_result'] = obj.ret()   #obj.func(val)
 
         return bundle
