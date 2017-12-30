@@ -4,7 +4,7 @@ from django.http import HttpResponse, JsonResponse
 from tastypie.resources	 import ModelResource
 from api.models import Note
 from tastypie.authorization import Authorization
-import image_check as im
+import api.image_check as im
 
 from django.db.models import CharField
 from django.db.models.functions import Cast

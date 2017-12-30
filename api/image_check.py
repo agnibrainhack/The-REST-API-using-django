@@ -1,4 +1,4 @@
-import card_detection as cd
+import api.card_detection as cd
 class Image:
     def __init__(self,url):
         self.url = url
